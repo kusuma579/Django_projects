@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background: linear-gradient(135deg,#141e30,#243b55);
+        }
+
+        .container{
+            width:400px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .container h1{
+            text-align:center;
+            margin-bottom:30px;
+            color:#243b55;
+        }
+
+        .input-box{
+            margin-bottom:20px;
+        }
+
+        .input-box label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#333;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            font-size:16px;
+            transition:0.3s;
+        }
+
+        .input-box input:focus{
+            border-color:#243b55;
+            outline:none;
+            box-shadow:0 0 10px rgba(36,59,85,0.4);
+        }
+
+        .btn{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            background:#243b55;
+            color:white;
+            font-size:18px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#141e30;
+            transform:scale(1.03);
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Add Product</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="input-box">
+                <label>Product Name</label>
+                <input type="text" name="name" placeholder="Enter product name">
+            </div>
+
+            <div class="input-box">
+                <label>Product Type</label>
+                <input type="text" name="type" placeholder="Enter product type">
+            </div>
+
+            <div class="input-box">
+                <label>Price</label>
+                <input type="number" name="price" placeholder="Enter price">
+            </div>
+
+            <div class="input-box">
+                <label>Quantity</label>
+                <input type="number" name="quantity" placeholder="Enter quantity">
+            </div>
+
+            <button type="submit" class="btn">
+                Add Product
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
+

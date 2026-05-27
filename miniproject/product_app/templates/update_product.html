@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <style>
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#141e30,#243b55);
+        }
+        .update-box{
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            width:450px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1{
+            text-align:center;
+            margin-bottom:30px;
+            color:#243b55;
+            font-weight:bold;
+        }
+        .btn-custom{
+            background:#243b55;
+            color:white;
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            font-size:18px;
+        }
+        .btn-custom:hover{
+            background:#141e30;
+        }
+    </style>
+</head>
+<body>
+<div class="update-box">
+    <h1>Update Product</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">
+                Product Name
+            </label>
+            <input type="text"
+                   name="name"
+                   value="{{ product.p_name }}"
+                   class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                Product Type
+            </label>
+            <input type="text"
+                   name="type"
+                   value="{{ product.p_type }}"
+                   class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                Price
+            </label>
+            <input type="number"
+                   name="price"
+                   value="{{ product.p_price }}"
+                   class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                Quantity
+            </label>
+            <input type="number"
+                   name="quantity"
+                   value="{{ product.p_quantity }}"
+                   class="form-control">
+        </div>
+        <button type="submit"
+                class="btn btn-custom">
+            Update Product
+        </button>
+    </form>
+</div>
+</body>
+</html>

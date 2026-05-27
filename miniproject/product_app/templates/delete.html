@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Product</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#141e30,#243b55);
+        }
+        .delete-box{
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,0.3);
+            width:400px;
+        }
+        h1{
+            color:red;
+            margin-bottom:20px;
+        }
+        p{
+            font-size:20px;
+            margin-bottom:30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="delete-box">
+        <h1>Delete Product</h1>
+        <p>
+            Are you sure you want to delete
+            <strong>{{ product.p_name }}</strong> ?
+        </p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">
+                Yes Delete
+            </button>
+            <a href="/product/product_list/"
+               class="btn btn-secondary">
+                Cancel
+            </a>
+        </form>
+    </div>
+</body>
+</html>
